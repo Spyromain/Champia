@@ -1,0 +1,23 @@
+{
+  "name": "champia",
+  "version": "1.0.0",
+  "description": "Bot Discord du serveur Hugoland",
+  "main": "run.js",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spyromain/Champia.git"
+  },
+  "author": "Spyromain",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Spyromain/Champia/issues"
+  },
+  "homepage": "https://github.com/Spyromain/Champia#readme"
+}
