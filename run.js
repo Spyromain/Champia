@@ -16,10 +16,6 @@ client.on("ready", () => {
 client.on("message", (message) => {
     if (message.content.startsWith("!ping")) {
         message.reply("pong !")
-    }
-})
-
-client.on("message", (message) => {
     if (message.author.id === FIANO_ID && removeDiacritics(message.content).toUpperCase().includes("OK")) {
         message.channel.send(`🌩️ Que la foudre s'abatte sur ${message.author} ! 🌩️`)
         .then((message) => {
