@@ -31,7 +31,7 @@ client.on("message", (message) => {
 
     if (message.author.id === FIANO_ID && removeDiacritics(message.content).toUpperCase().includes("OK")) {
         message.channel.send(`🌩️ Que la foudre s'abatte sur ${message.author} ! 🌩️`)
-        .then((message) => {
+        .then(() => {
             message.delete()
         })
     }
