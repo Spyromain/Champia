@@ -62,12 +62,12 @@ client.on("message", (message) =>
         ? message.reply("pong !")
         : message.content.startsWith("!start-server")
             ? new Promise((resolve) =>
-                exec("../start_public.sh", resolve)
+                exec("../start_public.sh", (error, stdout, stderr) =>
+                    resolve(stdout)
+                )
             )
-            .then((error, stdout, stderr) =>
-                error
-                ? message.channel.send("Erreur : " + error.message)
-                : message.channel.send(stdout)
+            .then((stdout) =>
+                message.channel.send(stdout || "Une erreur est survenue")
             )
             : Promise.resolve()
     .then(() =>
