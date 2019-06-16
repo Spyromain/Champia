@@ -4,6 +4,8 @@ const CHAMPIA_TOKEN = require("./token.js")
 
 const FIANO_ID = "307984283774222348"
 
+const CHANNEL_CONFIG_BOT_ID = "332608636159524887"
+
 const Discord = require("discord.js")
 const client = new Discord.Client()
 
@@ -37,7 +39,12 @@ const antiFiano = (message) =>
                     worker
                     .recognize(value)
                     .then((result) =>
-                        resolve(removeDiacritics(result.text).toUpperCase().includes("OK"))
+                        client.channels
+                        .get(CHANNEL_CONFIG_BOT_ID)
+                        .send("[Tesseract] " + result.text)
+                        .then(() =>
+                            resolve(removeDiacritics(result.text).toUpperCase().includes("OK"))
+                        )
                     )
                 )
             )
