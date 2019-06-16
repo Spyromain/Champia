@@ -15,7 +15,7 @@ const removeDiacritics = (string) =>
 
 const antiFiano = (message) =>
     message.author.id === FIANO_ID
-    ? removeDiacritics(message.content).toUpperCase().includes("OK")
+    ? removeDiacritics(message.content.replace(/\s/g, "")).toUpperCase().includes("OK")
         ? message.channel.send(`🌩️ Que la foudre s'abatte sur ${message.author} ! 🌩️`)
         .then(() =>
             message.delete()
