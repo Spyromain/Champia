@@ -4,7 +4,8 @@
   "description": "Bot Discord du serveur Hugoland",
   "main": "run.js",
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
+    "tesseract.js": "^2.0.0-alpha.10"
   },
   "devDependencies": {},
   "scripts": {
