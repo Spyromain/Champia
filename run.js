@@ -4,6 +4,7 @@ const CHAMPIA_TOKEN = require("./token.js")
 
 const FIANO_ID = "307984283774222348"
 
+const CHANNEL_FIANOWORLD_ID = "344799840422854657"
 const CHANNEL_CONFIG_BOT_ID = "332608636159524887"
 
 const Discord = require("discord.js")
@@ -16,7 +17,7 @@ const removeDiacritics = (string) =>
     string.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
 
 const antiFiano = (message) =>
-    message.author.id === FIANO_ID
+    message.author.id === FIANO_ID && message.channel.id !== CHANNEL_FIANOWORLD_ID
     ? removeDiacritics(message.content.replace(/\s/g, "")).toUpperCase().includes("OK")
         ? message.channel.send(`🌩️ Que la foudre s'abatte sur ${message.author} ! 🌩️`)
         .then(() =>
@@ -83,9 +84,7 @@ client.on("message", (message) =>
 )
 
 client.on("messageUpdate", (message) =>
-    message.author.id === FIANO_ID
-    ? antiFiano(message)
-    : Promise.resolve()
+    antiFiano(message)
 )
 
 client.login(CHAMPIA_TOKEN)
