@@ -84,4 +84,6 @@ client.on("messageUpdate", async (message) => {
     await antiFiano(message)
 })
 
+client.on("error", console.error)
+
 client.login(CHAMPIA_TOKEN)
